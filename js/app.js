@@ -19,9 +19,7 @@ document.getElementById('search-btn').addEventListener('click', () => {
 
 // show all product in UI 
 const showProducts = (products) => {
-
   const allProducts = products.map((pd) => pd);
-
   for (const product of allProducts) {
     // show products
     const image = product.image;
@@ -33,10 +31,10 @@ const showProducts = (products) => {
       <div>
     <img class="product-image" src=${image}></img>
       </div>
-      <h3 class="mt-2 fw-bold">${product.title.slice(0, 53)}</h3>
+      <h3 class="mt-2 fw-bold">${product.title.slice(0, 54)}</h3>
       <p class="fs-5 lead mb-1"><span class="fw-bold">Category:</span> ${product.category}</p>
       <p class="m-0 fs-6">Reviews: <span class="text-success fw-bold">${product.rating.count}</span></P>
-      <div class="mb-2 fs-6">Rating:<span class="text-success fw-bold">${product.rating.rate}/5</span></div>
+      <div class="mb-2 fs-6">Rating: <span class="text-success fw-bold">${product.rating.rate}/5</span></div>
       <h3 class="mb-4">Price: $ <span id="old-price">${product.price}</span></h3>
       <button onclick="addToCart(${product.id},${productPriceConverted})" id="addToCart-btn" class="buy-now btn btn-secondary">Add Cart</button>
       <button id="details-btn" class="btn btn-primary"><i class="fas fa-info-circle"></i>Details</button></div>
@@ -50,7 +48,6 @@ const showProducts = (products) => {
 // Add to shopping cart
 let count = 0;
 const addToCart = (id, price) => {
-  // console.log(id, price);
   count = count + 1;
   updatePrice("price", price);
   updateTaxAndCharge();
@@ -61,7 +58,6 @@ const addToCart = (id, price) => {
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseFloat(element);
-  // console.log(converted);
   return converted;
 };
 
@@ -70,7 +66,6 @@ const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue('price');
   const convertPrice = parseFloat(value);
   const total = convertedOldPrice + convertPrice;
-  // console.log(total);
   document.getElementById(id).innerText = total.toFixed(2);
 };
 

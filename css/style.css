@@ -17,10 +17,10 @@ body {
   flex-direction: row;
 }
 .search-field i {
-  /* background-color: black; */
   position: absolute;
   left: 3%;
 }
+/* input-field style */
 input {
   background-color: #eee;
   border: none;
@@ -36,15 +36,14 @@ input {
 /* button part */
 button {
   width: 100px;
-  border: 1px solid #ff9c2b;
-  background-color: #ffa32b;
+  border: 1px solid #25066e;
+  background-color: #170069;
   color: #ffffff;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: bold;
   padding: 12px 15px;
   letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: transform 80ms ease-in;
+  transition: transform 40ms ease-in;
 }
 
 button:active {
@@ -63,11 +62,9 @@ button:focus {
 #all-products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* border: 1px solid black; */
   text-align: center;
   width: 100%;
   margin-left: 15px;
-  /* margin: auto; */
   align-items: center;
   justify-content: center;
   grid-column-gap: 18px;
@@ -82,19 +79,17 @@ button:focus {
   border-radius: 7px;
 }
 .single-product:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   border-radius: 12px;
   border: 1px solid rgba(109, 109, 109, 0.5);
 }
 .product-image {
   width: 150px;
   height: 150px;
-  /* background-image: #dddddd; */
 }
 
 .cart {
+  background-color: rgb(196, 195, 195);
   width: 350px;
-  /* border: 1px solid green; */
   padding: 10px;
   box-shadow: 10px 10px 20px gray;
   border-radius: 5px;
@@ -104,6 +99,7 @@ button:focus {
 .cart-main {
   padding-right: 30px;
 }
+/* Media Query Part */
 @media only screen and (max-width: 768px) {
   #all-products {
     display: grid;
@@ -111,7 +107,6 @@ button:focus {
   }
   .cart {
     width: 300px;
-    /* border: 1px solid green; */
     padding: 10px;
     box-shadow: 10px 10px 20px gray;
     border-radius: 5px;
