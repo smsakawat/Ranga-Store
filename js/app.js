@@ -12,16 +12,20 @@ document.getElementById('input-field').addEventListener('blur', () => {
   const fontIcon = document.getElementById('icon');
   fontIcon.style.display = 'block';
 })
+// clear search box
+document.getElementById('search-btn').addEventListener('click', () => {
+  document.getElementById('input-field').value = '';
+})
 
 // show all product in UI 
 const showProducts = (products) => {
 
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
+    // show products
     const image = product.image;
     const productPrice = `${product.price}`
     const productPriceConverted = parseFloat(productPrice);
-    // console.log(productPriceConverted);
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `<div class="single-product">
@@ -30,12 +34,16 @@ const showProducts = (products) => {
       </div>
       <h3>${product.title.slice(0, 50)}</h3>
       <p class="fs-5 lead fw-bold">Category: ${product.category}</p>
-      <p class="m-0 fs-6">Total Ratings: <span class="text-success fw-bold">${product.rating.count}</span></P>
-      <p class="mb-2 fs-6">Average Rating: <span class="text-success fw-bold">${product.rating.rate}</span></P>
+      <p class="m-0 fs-6">Reviews: <span class="text-success fw-bold">${product.rating.count}</span></P>
+      <div class="mb-2 fs-6">Rating: <span class="text-success fw-bold">(${product.rating.rate})</span><span id="icons" class="text-warning"></span></div>
       <h2 class="mb-3">Price: $ <span id="old-price">${product.price}</span></h2>
       <button onclick="addToCart(${product.id},${productPriceConverted})" id="addToCart-btn" class="buy-now btn btn-secondary">Add Cart</button>
-      <button id="details-btn" class="btn btn-primary">Details</button></div>
+      <button id="details-btn" class="btn btn-primary"><i class="fas fa-info-circle"></i>Details</button></div>
       `;
+
+    // show icons on load
+    // getRatings(`${product.rating.rate}`);
+
     document.getElementById("all-products").appendChild(div);
   }
 };
@@ -96,4 +104,12 @@ const updateTotal = () => {
   document.getElementById("total").innerText = grandTotal.toFixed(2);
 
 };
+// // UPdate rating icons dynamically
+// const getRatings = (rating) => {
+//   const icons = document.querySelector('#icons');
+//   console.log(icons);
+//   const ratingRounded = Math.round(rating);
+//   document.querySelector('#icons').innerHTML = `
+//   icon`;
+// }
 loadProducts();
