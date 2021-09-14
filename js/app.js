@@ -32,11 +32,11 @@ const showProducts = (products) => {
       <div>
     <img class="product-image" src=${image}></img>
       </div>
-      <h3>${product.title.slice(0, 50)}</h3>
-      <p class="fs-5 lead fw-bold">Category: ${product.category}</p>
+      <h3 class="mt-2 fw-bold">${product.title.slice(0, 53)}</h3>
+      <p class="fs-5 lead mb-1"><span class="fw-bold">Category:</span> ${product.category}</p>
       <p class="m-0 fs-6">Reviews: <span class="text-success fw-bold">${product.rating.count}</span></P>
-      <div class="mb-2 fs-6">Rating: <span class="text-success fw-bold">(${product.rating.rate})</span><span id="icons" class="text-warning"></span></div>
-      <h2 class="mb-3">Price: $ <span id="old-price">${product.price}</span></h2>
+      <div class="mb-2 fs-6">Rating: <span class="text-success fw-bold">${product.rating.rate}/5</span><span id="icons" class="text-warning"></span></div>
+      <h3 class="mb-4">Price: $ <span id="old-price">${product.price}</span></h3>
       <button onclick="addToCart(${product.id},${productPriceConverted})" id="addToCart-btn" class="buy-now btn btn-secondary">Add Cart</button>
       <button id="details-btn" class="btn btn-primary"><i class="fas fa-info-circle"></i>Details</button></div>
       `;
