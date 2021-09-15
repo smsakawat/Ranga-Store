@@ -3,19 +3,23 @@ const loadProducts = () => {
   showProducts(data);
 
 };
-// input-field styles by dom
+
+// input-field styles by dom 
 document.getElementById('input-field').addEventListener('focus', () => {
   const fontIcon = document.getElementById('icon');
   fontIcon.style.display = 'none';
+  document.getElementById('input-field').style.border = '1px solid #25066e';
 })
 document.getElementById('input-field').addEventListener('blur', () => {
   const fontIcon = document.getElementById('icon');
   fontIcon.style.display = 'block';
-})
+  document.getElementById('input-field').style.border = '1px solid #eee';;
+});
 // clear search box
 document.getElementById('search-btn').addEventListener('click', () => {
   document.getElementById('input-field').value = '';
-})
+});
+
 
 // show all product in UI 
 const showProducts = (products) => {
@@ -46,7 +50,7 @@ const showProducts = (products) => {
   }
 
 };
-// show rating and icons dynamically
+// show rating and stars dynamically
 const showRating = (id, rating) => {
   console.log(rating);
   const icons = document.getElementById(id);
