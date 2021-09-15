@@ -35,9 +35,9 @@ const showProducts = (products) => {
       <div>
     <img class="product-image" src=${image}></img>
       </div>
-      <h3 class="mt-2 fw-bold">${product.title.slice(0, 36)}</h3>
+      <h3 class="mt-2 fw-bold">${product.title.slice(0, 22)}</h3>
       <p class="fs-5 lead mb-2"><span class="fw-bold">Category:</span> ${product.category}</p>
-      <p class="mb-1 fs-6"><span class="fw-bold me-1"><i class="fas fa-user-check"></i></span>: <span class="text-success fw-bold me-2">(${product.rating.count})</span>People rated this</P>
+      <p class="mb-1 fs-6"><span class="fw-bold me-1"><i class="fas fa-user-check"></i> :</span> <span class="text-success fw-bold me-2">${product.rating.count}</span>People rated this</P>
       <div class="mb-2 fs-6"><span class="fw-bold me-1">Rating:</span> <span id="${product.id}"class="me-1"></span><span class="text-success fw-bold">(${product.rating.rate})</span></div>
        <div class="mt-3"><h3 class="mb-4">Price: $ <span id="old-price">${product.price}</span></h3>
       <button onclick="addToCart(${product.id},${productPriceConverted})" id="addToCart-btn" class="buy-now btn btn-secondary ">Add Cart</button>
