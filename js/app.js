@@ -4,11 +4,11 @@ const loadProducts = () => {
 
 };
 
-// input-field styles by dom 
+// idynamic nput-field styles 
 document.getElementById('input-field').addEventListener('focus', () => {
   const fontIcon = document.getElementById('icon');
   fontIcon.style.display = 'none';
-  document.getElementById('input-field').style.border = '1px solid #25066e';
+  document.getElementById('input-field').style.border = '1px solid #7665b1';
 })
 document.getElementById('input-field').addEventListener('blur', () => {
   const fontIcon = document.getElementById('icon');
@@ -21,11 +21,11 @@ document.getElementById('search-btn').addEventListener('click', () => {
 });
 
 
-// show all product in UI 
+// display products in UI 
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
-    // show products
+    // show product
     const image = product.image;
     const productPrice = `${product.price}`
     const productPriceConverted = parseFloat(productPrice);
@@ -50,7 +50,7 @@ const showProducts = (products) => {
   }
 
 };
-// show rating and stars dynamically
+// show rating and rating-stars dynamically
 const showRating = (id, rating) => {
   console.log(rating);
   const icons = document.getElementById(id);
