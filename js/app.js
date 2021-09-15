@@ -31,19 +31,100 @@ const showProducts = (products) => {
       <div>
     <img class="product-image" src=${image}></img>
       </div>
-      <h3 class="mt-2 fw-bold">${product.title.slice(0, 54)}</h3>
-      <p class="fs-5 lead mb-1"><span class="fw-bold">Category:</span> ${product.category}</p>
-      <p class="m-0 fs-6">Reviews: <span class="text-success fw-bold">${product.rating.count}</span></P>
-      <div class="mb-2 fs-6">Rating: <span class="text-success fw-bold">${product.rating.rate}/5</span></div>
-      <h3 class="mb-4">Price: $ <span id="old-price">${product.price}</span></h3>
-      <button onclick="addToCart(${product.id},${productPriceConverted})" id="addToCart-btn" class="buy-now btn btn-secondary">Add Cart</button>
-      <button id="details-btn" class="btn btn-primary"><i class="fas fa-info-circle"></i>Details</button></div>
+      <h3 class="mt-2 fw-bold">${product.title.slice(0, 36)}</h3>
+      <p class="fs-5 lead mb-2"><span class="fw-bold">Category:</span> ${product.category}</p>
+      <p class="mb-1 fs-6"><span class="fw-bold me-1"><i class="fas fa-user-check"></i></span>: <span class="text-success fw-bold me-3">(${product.rating.count})</span>People  rated this</P>
+      <div class="mb-2 fs-6"><span class="fw-bold me-1">Rating:</span> <span id="${product.id}"class="me-1"></span><span class="text-success fw-bold">(${product.rating.rate})</span></div>
+       <div class="mt-3"><h3 class="mb-4">Price: $ <span id="old-price">${product.price}</span></h3>
+      <button onclick="addToCart(${product.id},${productPriceConverted})" id="addToCart-btn" class="buy-now btn btn-secondary ">Add Cart</button>
+      <button id="details-btn" class="btn btn-primary"><i class="fas fa-info-circle"></i>Details</button></div></div>
       `;
     document.getElementById("all-products").appendChild(div);
+    // get rating
+    showRating(product.id, product.rating.rate);
 
   }
 
 };
+// show rating and icons dynamically
+const showRating = (id, rating) => {
+  console.log(rating);
+  const icons = document.getElementById(id);
+  if (rating === 2) {
+    icons.innerHTML = `
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+    <i class="far fa-star text-warning"></i>
+    <i class="far fa-star text-warning"></i>
+    <i class="far fa-star text-warning"></i>
+   `
+  }
+  if (rating === 3) {
+    icons.innerHTML = `
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+    <i class="far fa-star text-warning"></i>
+    <i class="far fa-star text-warning"></i>
+    `
+  }
+  if (rating === 4) {
+    icons.innerHTML = `
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+    <i class="far fa-star text-warning"></i>`
+  }
+
+  if (rating === 5) {
+    icons.innerHTML = `
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>`
+
+  }
+  if (rating < 2 && rating > 1) {
+    icons.innerHTML = `
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star-half-alt text-warning"></i>
+    <i class="far fa-star text-warning"></i>
+    <i class="far fa-star text-warning"></i>
+    <i class="far fa-star text-warning"></i>
+   `
+
+  }
+  if (rating > 2 && rating < 3) {
+    icons.innerHTML = `
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star-half-alt text-warning"></i>
+    <i class="far fa-star text-warning"></i>
+    <i class="far fa-star text-warning"></i>
+    `
+
+  }
+  if (rating > 3 && rating < 4) {
+    icons.innerHTML = `
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star-half-alt text-warning"></i>
+    <i class="far fa-star text-warning"></i>`
+
+  }
+  if (rating > 4 && rating < 5) {
+    icons.innerHTML = `
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star-half-alt text-warning"></i>`
+
+  }
+}
 
 // Add to shopping cart
 let count = 0;
